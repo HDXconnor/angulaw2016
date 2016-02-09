@@ -14,7 +14,7 @@
        $rootScope.lastHidden = true;
        $rootScope.counter = 0;
        $rootScope.docketNumber = 0;
-       $rootScope.accusations = ["That the Plaintiff is a resident of Pulaski County, Arkansas and has been for more than ninety (90) days.",
+       $rootScope.parray = ["That the Plaintiff is a resident of Pulaski County, Arkansas and has been for more than ninety (90) days.",
        "That the Plaintiff has an address of 611 King Place, Apt. D, Jacksonville, Arkansas, 72076 and she is on disability.",
        "That the Defendant's address is 136 Central Ave., Jacksonville, Arkansas, 72076, and he is on disability.",
        "That Plaintiff and Defendant were married to each other on or about May 23, 1985, in Lonoke County, Arkansas.",
