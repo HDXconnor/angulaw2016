@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bower Project 1</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="jumbotron" ng-controller="myCtrl as con">
+        <h1 class="text-center" ng-model="title" id="header">So you got served!</h1>
+        <a class="btn btn-primary active btn-lg" ng-click="con.docketSubmit()" href="#" id="testButton">Test</a>
+        <p>{{testText}}</p>
+
+        <div id="stateCounty" class="text-center" ng-hide="isHidden2">
+            <div id="state">
+                <p class="statetext">State: </p>
+                <select>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+            </div>
+            <div id = "county">
+                <p class="countytext">County: </p>
+                <textarea id="countyta"></textarea>
+            </div>
+            <p>Type of Court: </p>
+            <select>
+                <option value="Circuit">Circuit</option>
+                <option value="District">District</option>
+            </select>
+        <p></p>
+        </div>
+
+        <div id="docket" class="text-center" ng-hide="isHidden3" ng-controller="myCtrl as con">
+            <input type="text" id="docketField" ng-maxlength="7" placeholder="Docket Number:">
+        </div>
+        <div ng-hide="formHidden" class="text-mid" ng-controller="myCtrl as con">
+            <input type="text" id="fname" ng-maxlength="7" placeholder="First Name">
+            <input type="text" id="lname" ng-maxlength="7" placeholder="Last Name">
+            <p></p>
+            <input type="text" id="address" ng-maxlength="7" placeholder="Address">
+            <input type="text" id="city" ng-maxlength="7" placeholder="City">
+            <p></p>
+            <input type="text" id="zip" ng-maxlength="7" placeholder="Zip">
+            <input type="text" id="phone" ng-maxlength="7" placeholder="Phone">
+            <p></p>
+            <a class="btn btn-primary active btn-lg" ng-click="con.showLast()" href="#" id="lastButton">Next</a>
+        </div>
+
+        <div class="text-mid" ng-hide="lastHidden">
+            <h1>Thank you!</h1>
+            <h3>your PDF has been sent to your email.</h3>
+            <p>Don't forget to:</p>
+            <p>1) Review, answer, and sign it</p>
+            <p>2) Send copy to plaintiff</p>
+            <p>3) File with court clerk</p>
+        </div>
+
+        <div id="admitance" ng-hide="dontknow" ng-controller="myCtrl as con" class="text-center">
+            <h2 >Paragraph {{paraNum}}</h2>
+            <p>{{paraText}}</p>
+        </div>
+
+        <div class="text-mid" ng-hide="buttonHidden" ng-controller="myCtrl as con">
+            <a class="btn btn-primary active btn-lg" ng-click="con.showScreen()" href="#" id="button">See what you can do about it</a>
+        </div>
+        <div class="text-mid" ng-hide="yesno" ng-controller="myCtrl as con">
+            <a class="btn btn-primary active btn-lg" ng-click="con.nextScreen()" href="#" id="yes">Yes</a>
+            <a class="btn btn-primary active btn-lg" ng-click="con.nextScreen()" href="#" id="no">No</a>
+            <div ng-hide="dontknow">
+                <p></p>
+                <a class="btn btn-primary active btn-lg" ng-click="con.nextScreen()" href="#" id="dontknow">Don't Know</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script>src="http://code.angularjs.org/1.1.0/angular-mocks.js"</script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html>
